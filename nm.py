@@ -9,6 +9,7 @@ import subprocess
 import numpy as np
 import argparse
 import os
+from operator import itemgetter
 
 ALPHA = 1
 GAMMA = 2
@@ -60,7 +61,7 @@ class Simplex(object):
     self.vertices = [(Bleu(*x), x) for x in vertices]
 
   def Order(self):
-    self.vertices = sorted(self.vertices)
+    self.vertices = sorted(self.vertices, key=itemgetter(0))
 
   def Centroid(self):
     bestN = self.vertices[:-1]
