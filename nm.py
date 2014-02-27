@@ -87,7 +87,7 @@ class Simplex(object):
     x1 = self.vertices[0]
     new_vertices = [x1]
     for _, x_i in self.vertices[1:]:
-      new_x_i = x1 + SIGMA * (x_i - x1)
+      new_x_i = x1[1] + SIGMA * (x_i - x1[1])
       new_vertices.append( (Bleu(*new_x_i), new_x_i) )
     self.vertices = new_vertices
 
